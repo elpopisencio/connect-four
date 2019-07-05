@@ -13,8 +13,8 @@ const GettingStarted = () => {
 					</p>
 					<pre>$ npx create-react-app connect-four</pre>
 					<p>
-						And since we're alrady in the terminal lets go inside of the
-						"connect-four" directory and install Styled Components
+						And since we already are in the terminal lets go inside of the
+						"connect-four" directory and install Styled Component.
 					</p>
 					<pre>
 						$ cd connect-four <br />$ npm i styled-components

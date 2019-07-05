@@ -2,6 +2,7 @@ import React from 'react';
 import ConnectFour from './components/ConnectFour';
 import 'highlight.js/styles/lightfair.css';
 import GettingStarted from './blog/GettingStarted';
+import DataStructure from './blog/DataStructure';
 
 const App = () => {
 	return (
@@ -36,7 +37,7 @@ const App = () => {
 			</div>
 			<section className="section">
 				<div className="content is-medium">
-					<h1>Description</h1>
+					<h2>Description</h2>
 					<p>
 						In this project we'll make a Connect Four game with React and
 						Styled Components.
@@ -44,7 +45,7 @@ const App = () => {
 				</div>
 			</section>
 			<GettingStarted />
-
+			<DataStructure />
 			<ConnectFour />
 		</div>
 	);
