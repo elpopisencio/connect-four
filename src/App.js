@@ -1,5 +1,7 @@
 import React from 'react';
 import ConnectFour from './components/ConnectFour';
+import 'highlight.js/styles/lightfair.css';
+import GettingStarted from './blog/GettingStarted';
 
 const App = () => {
 	return (
@@ -32,6 +34,17 @@ const App = () => {
 					</h2>
 				</div>
 			</div>
+			<section className="section">
+				<div className="content is-medium">
+					<h1>Description</h1>
+					<p>
+						In this project we'll make a Connect Four game with React and
+						Styled Components.
+					</p>
+				</div>
+			</section>
+			<GettingStarted />
+
 			<ConnectFour />
 		</div>
 	);
