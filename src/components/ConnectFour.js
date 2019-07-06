@@ -1,50 +1,22 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
+import Grid from './Grid';
 
 const RED = 'red';
 const BLUE = 'blue';
+const GRID = [[RED, RED, BLUE], [], [], [], [], [], []];
 
-const ConnectFour = () => {
-	const [columns, setColumns] = useState([[], [], [], [], [], [], []]);
-	const [player, setPlayer] = useState(RED);
-	return (
-		<div
-			style={{
-				display: 'flex',
-				transform: 'rotate(180deg)',
-				width: 'fit-content',
-			}}
-		>
-			{columns.map((column, index) => (
-				<div
-					style={{
-						display: 'flex',
-						flexDirection: 'column',
-						width: '2em',
-						height: '10em',
-						backgroundColor: 'gray',
-					}}
-					onClick={() => {
-						console.log(index);
-						columns[index].push(player);
-						console.log(columns);
-						setPlayer(player === RED ? BLUE : RED);
-						setColumns([...columns]);
-					}}
-				>
-					{column.map((item) => (
-						<div
-							style={{
-								backgroundColor: item,
-								width: '1em',
-								height: '1em',
-								margin: '1px auto ',
-							}}
-						/>
-					))}
-				</div>
-			))}
-		</div>
-	);
+const App = () => {
+  const [grid, setGrid] = useState(GRID);
+  const [player, setPlayer] = useState(RED);
+  const handleDrop = index => {
+    if (grid[index].length > 5) {
+      return undefined;
+    }
+    grid[index].push(player);
+    setPlayer(player === RED ? BLUE : RED);
+    setGrid([...grid]);
+  };
+  return <Grid grid={grid} setGrid={setGrid} onDrop={handleDrop} />;
 };
 
-export default ConnectFour;
+export default App;

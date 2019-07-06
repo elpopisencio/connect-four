@@ -3,6 +3,7 @@ import ConnectFour from './components/ConnectFour';
 import 'highlight.js/styles/lightfair.css';
 import GettingStarted from './blog/GettingStarted';
 import DataStructure from './blog/DataStructure';
+import SettingGrid from './blog/SettingGrid';
 
 const App = () => {
 	return (
@@ -47,6 +48,7 @@ const App = () => {
 			<GettingStarted />
 			<DataStructure />
 			<ConnectFour />
+			<SettingGrid />
 		</div>
 	);
 };
