@@ -47,7 +47,7 @@ const getLeftPositionWithSlope = (
 	slope
 ) => {
 	if (grid[column] && grid[column][row] === currentPlayer) {
-		const nextPosition = [column - 1, row - slope];
+		const nextPosition = { column: column - 1, row: row - slope };
 		const leftResult = getLeftPositionWithSlope(
 			currentPlayer,
 			grid,
@@ -94,6 +94,7 @@ const checkFromLeft = (currentPlayer, grid, column) => {
 		currentPosition,
 		SLOPE
 	);
+	console.log(leftUpPosition);
 	return checkFromLeftWithSlope(currentPlayer, grid, leftUpPosition, SLOPE);
 };
 

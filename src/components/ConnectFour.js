@@ -17,6 +17,7 @@ const App = () => {
 		const updatedGrid = [...grid];
 		updatedGrid[index] = [...updatedGrid[index], currentPlayer];
 		const didWin = checkWin(currentPlayer, updatedGrid, index);
+		console.log(didWin);
 		if (didWin) {
 			setPlayerWin(didWin);
 		} else {
