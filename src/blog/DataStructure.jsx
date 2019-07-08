@@ -22,13 +22,11 @@ const DataStructure = () => {
 				<p>
 					This is because we want to have de columns independent of each
 					other. So, to drop the disks into de grid we can do:
-					<Highlight className="javascript">
-						grid[1].push('disk');
-					</Highlight>
-					<p>
-						Talking about disks, we are going to represent them with the
-						colour setted in two constants.
-					</p>
+				</p>
+				<Highlight className="javascript">grid[1].push('disk');</Highlight>
+				<p>
+					Talking about disks, we are going to represent them with the
+					colour setted in two constants.
 				</p>
 				<Highlight className="javascript">
 					const RED = 'red';

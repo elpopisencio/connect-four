@@ -19,16 +19,16 @@ const App = () => {
 									style={{ color: 'inherit' }}
 									href="https://elpopisencio.github.io"
 								>
-									<span class="icon is-large">
-										<i class="fa fa-home"></i>
+									<span className="icon is-large">
+										<i className="fa fa-home"></i>
 									</span>
 								</a>
 								<a
 									style={{ color: 'inherit' }}
 									href="https://github.com/elpopisencio/pagination"
 								>
-									<span class="icon is-large">
-										<i class="fab fa-github"></i>
+									<span className="icon is-large">
+										<i className="fab fa-github"></i>
 									</span>
 								</a>
 							</div>
