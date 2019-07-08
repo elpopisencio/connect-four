@@ -20,24 +20,24 @@ const checkFromLeftWithSlope = (
 	slope,
 	disksAmount
 ) => {
-	disksAmount = disksAmount || 0;
-	if (grid[column] && grid[column][row] === currentPlayer) {
-		const nextPosition = { column: column + 1, row: row + slope };
-		if (
-			checkFromLeftWithSlope(
-				currentPlayer,
-				grid,
-				nextPosition,
-				slope,
-				disksAmount + 1
-			) ||
-			disksAmount >= 3
-		) {
-			grid[column][row] = currentPlayer + '-win';
-			return true;
-		}
+	if (!grid[column] || grid[column][row] !== currentPlayer) {
+		return false;
 	}
-	return false;
+	disksAmount = disksAmount || 0;
+	const nextPosition = { column: column + 1, row: row + slope };
+	if (
+		checkFromLeftWithSlope(
+			currentPlayer,
+			grid,
+			nextPosition,
+			slope,
+			disksAmount + 1
+		) ||
+		disksAmount >= 3
+	) {
+		grid[column][row] = currentPlayer + '-win';
+		return true;
+	}
 };
 
 const getLeftPositionWithSlope = (
@@ -46,20 +46,20 @@ const getLeftPositionWithSlope = (
 	{ column, row },
 	slope
 ) => {
-	if (grid[column] && grid[column][row] === currentPlayer) {
-		const nextPosition = { column: column - 1, row: row - slope };
-		const leftResult = getLeftPositionWithSlope(
-			currentPlayer,
-			grid,
-			nextPosition,
-			slope
-		);
-		if (leftResult === false) {
-			return { column, row };
-		}
-		return leftResult;
+	if (!grid[column] || grid[column][row] !== currentPlayer) {
+		return false;
 	}
-	return false;
+	const nextPosition = { column: column - 1, row: row - slope };
+	const leftResult = getLeftPositionWithSlope(
+		currentPlayer,
+		grid,
+		nextPosition,
+		slope
+	);
+	if (leftResult === false) {
+		return { column, row };
+	}
+	return leftResult;
 };
 
 const checkFromLeftUp = (currentPlayer, grid, column) => {
@@ -94,7 +94,6 @@ const checkFromLeft = (currentPlayer, grid, column) => {
 		currentPosition,
 		SLOPE
 	);
-	console.log(leftUpPosition);
 	return checkFromLeftWithSlope(currentPlayer, grid, leftUpPosition, SLOPE);
 };
 

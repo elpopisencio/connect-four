@@ -47,8 +47,8 @@ const App = () => {
 			</section>
 			<GettingStarted />
 			<DataStructure />
-			<ConnectFour />
 			<SettingGrid />
+			<ConnectFour />
 		</div>
 	);
 };
