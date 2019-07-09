@@ -1,3 +1,46 @@
+import React from 'react';
+import Highlight from 'react-highlight';
+import BlogPage from './BlogPage';
+import Grid from '../components/Grid';
+
+const WinningIsWinning = () => {
+	return (
+		<BlogPage title="Winning's winning">
+			<p>
+				Now we're going to define the winning logic, in which we're going to
+				use recursion. So, let's take care of the vertical situation first,
+				just to warm up.
+			</p>
+			<Highlight className="javascript">{`const checkVertical = (currentPlayer, column, disksAmount) => {
+	disksAmount = disksAmount || 1;
+	const index = column.length - disksAmount;
+	if (!column[index] || column[index] !== currentPlayer) {
+		return false;
+	}
+	if (
+		disksAmount === 4 ||
+		checkVertical(currentPlayer, column, disksAmount + 1)
+	) {
+		column[index] = currentPlayer + '-win';
+		return true;
+	}
+};`}</Highlight>
+			<Grid grid={[[], [], [], ['red', 'red', 'red', 'red'], [], [], []]} />
+			<p>
+				As always, we have to define the base case for the recursion. In our
+				case, the base case is when the disk doesn't belong to the current
+				player or the position is outside of the grid.
+			</p>
+			<Highlight className="javascript">{`if (!column[index] || column[index] !== currentPlayer) {
+	return false;
+}`}</Highlight>
+		</BlogPage>
+	);
+};
+
+export default WinningIsWinning;
+
+/*
 const checkVertical = (currentPlayer, column, disksAmount) => {
 	disksAmount = disksAmount || 1;
 	const index = column.length - disksAmount;
@@ -107,3 +150,5 @@ const checkWin = (currentPlayer, grid, columnIndex) => {
 };
 
 export default checkWin;
+
+*/

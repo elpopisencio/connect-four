@@ -1,6 +1,7 @@
 import React from 'react';
 import Highlight from 'react-highlight';
 import BlogPage from './BlogPage';
+import Grid from '../components/Grid';
 
 const SettingGrid = () => {
 	return (
@@ -36,7 +37,12 @@ const SIZE = 2;`}</Highlight>
 	overflow: hidden;
 	box-sizing: unset;
 \`;`}</Highlight>
-			<p>Now we have to set up the columns.</p>
+			<p>
+				Now we have to set up the columns. The display and flex-direction
+				atributtes are nedded to make the columns be displayed as if the
+				disks where dropped from the top. The other atributtes make the
+				columns look nice.
+			</p>
 			<Highlight className="javascript">{`const Column = styled.div\`
 	display: flex;
 	flex-direction: column-reverse;
@@ -45,6 +51,51 @@ const SIZE = 2;`}</Highlight>
 	padding: 2px 6px 2px 2px
 	background-color: \${({ index }) => (index % 2 === 0 ? LIGHT : DARK)};
 \`;`}</Highlight>
+			<p>The disks:</p>
+			<Highlight className="javascript">{`const Disk = styled.div\`
+	width: \${SIZE}em;
+	height: \${SIZE}em;
+	border-radius: \${SIZE}em;
+	border: 2px solid
+		\${({ color }) => (!color.includes('-win') ? COLOR[color] : 'black')};
+	background-color: \${({ color }) => COLOR[color.replace('-win', '')]};
+	margin-top: 1px;
+\`;`}</Highlight>
+			<p>And finally we put everything together:</p>
+			<Highlight className="javascript">{`const Grid = ({ grid, onDrop }) => (
+	<Container>
+		{grid.map((column, index) => (
+			<Column key={index} index={index} onClick={() => onDrop(index)}>
+				{column.map((color, index) => (
+					<Disk key={index} color={color} />
+				))}
+			</Column>
+		))}
+	</Container>
+);`}</Highlight>
+			<p>And if we call the grid with this:</p>
+			<Highlight className="javascript">{`<Grid
+	grid={[
+		['blue', 'red'],
+		['red-win', 'blue', 'red'],
+		['red', 'red-win'],
+		['red', 'blue', 'red-win'],
+		['blue', 'red', 'blue', 'red-win'],
+		['red', 'blue'],
+		['red', 'blue'],
+	]}
+/>`}</Highlight>
+			<Grid
+				grid={[
+					['blue', 'red'],
+					['red-win', 'blue', 'red'],
+					['red', 'red-win'],
+					['red', 'blue', 'red-win'],
+					['blue', 'red', 'blue', 'red-win'],
+					['red', 'blue'],
+					['red', 'blue'],
+				]}
+			/>
 		</BlogPage>
 	);
 };

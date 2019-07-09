@@ -43,7 +43,11 @@ const Container = styled.div`
 const Grid = ({ grid, onDrop }) => (
 	<Container>
 		{grid.map((column, index) => (
-			<Column key={index} index={index} onClick={() => onDrop(index)}>
+			<Column
+				key={index}
+				index={index}
+				onClick={() => onDrop && onDrop(index)}
+			>
 				{column.map((color, index) => (
 					<Disk key={index} color={color} />
 				))}
