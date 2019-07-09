@@ -13,8 +13,8 @@ const BlogPage = ({ children, title }) => {
 							href="#!"
 							onClick={() => setIsShown(!isShown)}
 						>
-							<span class="icon is-small">
-								<i class="fas fa-minus-circle"></i>
+							<span className="icon is-small">
+								<i className="fas fa-minus-circle"></i>
 							</span>
 						</a>
 					) : (
@@ -23,8 +23,8 @@ const BlogPage = ({ children, title }) => {
 							href="#!"
 							onClick={() => setIsShown(!isShown)}
 						>
-							<span class="icon is-small">
-								<i class="fas fa-plus-circle"></i>
+							<span className="icon is-small">
+								<i className="fas fa-plus-circle"></i>
 							</span>
 						</a>
 					)}

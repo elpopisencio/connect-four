@@ -3,26 +3,29 @@ import React, { useState } from 'react';
 const UnderConstruction = ({ children, title }) => {
 	const [isActive, setIsActive] = useState(true);
 	return (
-		<div class={'modal ' + (isActive && 'is-active')}>
+		<div className={'modal ' + (isActive && 'is-active')}>
 			<div
-				class="modal-background"
+				className="modal-background"
 				onClick={() => setIsActive(!isActive)}
 			></div>
-			<div class="modal-content">
-				<article class="message is-warning">
-					<div class="message-header">
+			<div className="modal-content">
+				<article className="message is-warning">
+					<div className="message-header">
 						<p>Under Construction</p>
 						<button
-							class="delete"
+							className="delete"
 							aria-label="delete"
 							onClick={() => setIsActive(!isActive)}
 						></button>
 					</div>
-					<div class="message-body">
+					<div className="message-body is-size-5">
 						<p>
 							Hi! Just for you to know, this page isn't finished yet.
 							Feel free to take a look around but remember to come back
-							in the future to see the final version.
+							in the future to see the final version{' '}
+							<span className="icon">
+								<i className="far fa-smile"></i>
+							</span>
 						</p>
 						<br />
 						<p>Have an awesome day!</p>
