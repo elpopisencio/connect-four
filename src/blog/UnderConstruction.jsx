@@ -20,7 +20,7 @@ const UnderConstruction = ({ children, title }) => {
 					</div>
 					<div className="message-body is-size-5">
 						<p>
-							Hi! Just for you to know, this page isn't finished yet.
+							Hi! Just wanted you to know that this page isn't finished yet.
 							Feel free to take a look around but remember to come back
 							in the future to see the final version{' '}
 							<span className="icon">
